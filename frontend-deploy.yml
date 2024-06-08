@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: copilot-frontend
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: copilot-frontend
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: vinayakyadav4017/copilot-frontend:v1
+          imagePullPolicy: IfNotPresent
+  selector:
+    matchLabels:
+      app: frontend
